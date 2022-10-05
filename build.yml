@@ -19,6 +19,3 @@ spec:
     to:
       kind: ImageStreamTag
       name: tutorialk8sjob:latest
-      spec:
-        lookupPolicy:
-          local: true

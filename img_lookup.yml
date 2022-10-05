@@ -1,0 +1,10 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: tutorialk8sjob
+  name: tutorialk8sjob
+  namespace: ondemand-job
+spec:
+  lookupPolicy:
+    local: true
