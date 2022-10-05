@@ -9,4 +9,4 @@ spec:
       image: tutorialk8sjob
       imagePullPolicy: Always
   serviceAccountName: job-robot
-  restartPolicy: Never
+  restartPolicy: Always
