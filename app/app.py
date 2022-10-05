@@ -3,7 +3,7 @@ import time
 from kubernetes import client, config
 
 
-NS = 'on-demand'
+NS = 'ondemand-job'
 JOB_NAME = 'simple-job'
 
 
