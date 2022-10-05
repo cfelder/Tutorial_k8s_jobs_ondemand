@@ -1,9 +1,13 @@
-import yaml
 import time
-from kubernetes import client, config, watch
+from os import path
 
+from kubernetes import client, config
+
+
+NS = 'ondemand-job'
 JOB_NAME = 'simple-job'
-kubernetes_config_file_path = 'C:\\Users\\username\\.kube\\config'
+kubernetes_config_file_path = path.expanduser('~/.kube/config')
+
 
 def create_job_object():
     # Configureate Pod template container
@@ -30,13 +34,14 @@ def create_job_object():
 def create_job(api_instance, job):
     api_response = api_instance.create_namespaced_job(
         body=job,
-        namespace='default')
+        namespace=NS)
     print("Job created. status='%s'" % str(api_response.status))
+
 
 def delete_job(api_instance):
     api_response = api_instance.delete_namespaced_job(
         name=JOB_NAME,
-        namespace='default',
+        namespace=NS,
         body=client.V1DeleteOptions(
             propagation_policy='Foreground',
             grace_period_seconds=0))

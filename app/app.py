@@ -1,9 +1,11 @@
-import yaml
 import time
-from kubernetes import client, config, watch
 
+from kubernetes import client, config
+
+
+NS = 'on-demand'
 JOB_NAME = 'simple-job'
-kubernetes_config_file_path = 'C:\\Users\\username\\.kube\\config'
+
 
 def create_job_object():
     # Configureate Pod template container
@@ -33,6 +35,7 @@ def create_job(api_instance, job):
         namespace='default')
     print("Job created. status='%s'" % str(api_response.status))
 
+
 def delete_job(api_instance):
     api_response = api_instance.delete_namespaced_job(
         name=JOB_NAME,
@@ -59,4 +62,3 @@ if __name__ == '__main__':
     while True:
         main()
         time.sleep(5)
-    

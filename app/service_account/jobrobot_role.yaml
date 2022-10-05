@@ -1,12 +1,22 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  namespace: default
   name: job-robot
+  namespace: ondemand-job
 rules:
-- apiGroups: [""] # "" indicates the core API group
-  resources: ["pods"]
-  verbs: ["get", "list", "watch"]
-- apiGroups: ["batch", "extensions"]
-  resources: ["jobs"]
-  verbs: ["create", "delete"]
+  - apiGroups:
+      - ''
+    resources: 
+      - 'pods'
+    verbs:
+      - 'get'
+      - 'list'
+      - 'watch'
+  - apiGroups: 
+      - 'batch'
+      #- 'extensions'
+    resources: 
+      - 'jobs'
+    verbs: 
+      - 'create'
+      - 'delete'
