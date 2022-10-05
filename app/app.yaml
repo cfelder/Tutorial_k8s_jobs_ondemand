@@ -7,5 +7,6 @@ spec:
   containers:
     - name: tutorialk8sjob
       image: tutorialk8sjob
-      imagePullPolicy: IfNotPresent
+      imagePullPolicy: Always
   serviceAccountName: job-robot
+  restartPolicy: Never
